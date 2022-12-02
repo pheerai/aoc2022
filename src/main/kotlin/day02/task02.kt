@@ -4,19 +4,17 @@ import println
 
 fun Day02Input.task021() {
     this.prepare()
-        .map {
+        .sumOf {
             it.ownChoice.choicePoints + it.roundOutcome.resultPoints
         }
-        .sum()
         .println()
 }
 
 fun Day02Input.task022() {
     this.prepare()
-        .map {
+        .sumOf {
             it.requiredChoice.choicePoints + it.requiredResult.resultPoints
         }
-        .sum()
         .println()
 }
 

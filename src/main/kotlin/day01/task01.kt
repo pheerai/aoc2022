@@ -1,6 +1,6 @@
-import day01.Day01Input
-import day01.rawInput01
-import day01.rawTestInput01
+package day01
+
+import println
 
 fun Day01Input.task011() {
     this.prepare()

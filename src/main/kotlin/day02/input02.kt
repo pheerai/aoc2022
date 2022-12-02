@@ -42,7 +42,7 @@ data class RPSRound(
     val roundOutcome by lazy { this.evalRound() }
     val requiredChoice by lazy { this.findRequiredChoice() }
 
-    fun evalRound(): RPSResult {
+    private fun evalRound(): RPSResult {
         // Alternatively: assign 0,1,2 to R,P,S, create difference, mod3: 0 = draw, 1: A wins, -1: B wins
         return when (opponentChoice) {
             RPSChoice.ROCK -> when (ownChoice) {
@@ -65,7 +65,7 @@ data class RPSRound(
         }
     }
 
-    fun findRequiredChoice(): RPSChoice {
+    private fun findRequiredChoice(): RPSChoice {
         return when (requiredResult) {
             RPSResult.YOU_WIN -> when (opponentChoice) {
                 RPSChoice.ROCK -> RPSChoice.PAPER
