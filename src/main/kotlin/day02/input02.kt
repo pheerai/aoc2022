@@ -99,6 +99,7 @@ value class Day02Input(private val value: String) {
     }
 }
 
+//region rawInput
 val rawTestInput02: Day02Input = Day02Input(
     """A Y
 B X
@@ -2607,3 +2608,4 @@ B X
 C Y
 B Z"""
 )
+//endregion rawInput

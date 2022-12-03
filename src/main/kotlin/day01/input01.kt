@@ -6,6 +6,7 @@ value class Day01Input(private val value: String) {
         .map { it.lines().map { s -> s.toLong() } }
 }
 
+//region rawInput
 val rawTestInput01: Day01Input = Day01Input("""1000
 2000
 3000
@@ -2265,3 +2266,4 @@ val rawInput01: Day01Input = Day01Input("""5474
 5259
 1006
 8445""")
+//endregion rawInput
