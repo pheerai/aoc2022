@@ -1,6 +1,8 @@
 package day02
 
 import println
+import rawInput02
+import rawTestInput02
 
 fun Day02Input.task021() {
     this.prepare()
