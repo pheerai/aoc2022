@@ -2,6 +2,8 @@ package day05
 
 import Stack
 
+// _Maybe_ moving the actual code for the operation here instead of the stacks, and using inheritance or lambda reference to get the correct implementation, would have been a cleaner approach.
+// It would only be fun with dependency injection, though, and that's too much overhead for a project this size.
 class CraneOperation(val amount: Int, val from: Int, val to: Int) {
     constructor(stepTriple: Triple<Int, Int, Int>) : this(stepTriple.first, stepTriple.second, stepTriple.third)
     constructor(taskDescription: String) : this(
