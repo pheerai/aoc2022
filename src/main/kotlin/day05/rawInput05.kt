@@ -3,9 +3,9 @@ package day05
 @JvmInline
 value class Task05OpString(val opString: String)
 @JvmInline
-value class Task05StacksState(val stacks: HashMap<Int, List<Char>>)
+value class Task05StacksState(val stacks: List<Pair<Int, List<Char>>>)
 
-val testInitialState05 = Task05StacksState(hashMapOf(
+val testInitialState05 = Task05StacksState(listOf(
     1 to "ZN".toList(),
     2 to "MCD".toList(),
     3 to "P".toList()
@@ -17,7 +17,7 @@ move 2 from 2 to 1
 move 1 from 1 to 2""")
 
 @Suppress("SpellCheckingInspection")
-val initialState05 = Task05StacksState(hashMapOf(
+val initialState05 = Task05StacksState(listOf(
     1 to "SCVN".toList(),
     2 to "ZMJHNS".toList(),
     3 to "MCTGJND".toList(),
