@@ -50,8 +50,3 @@ class CapacityQueue<T>(
         }
     }
 }
-
-sealed interface Result {
-    object FAILURE: Result
-    data class SUCCESS<T>(val payload: T)
-}
