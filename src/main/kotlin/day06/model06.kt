@@ -12,5 +12,15 @@ class Comm(private val datastream: String) {
         return foundIndex?.plus(packageSize) ?: -1
     }
 
-    private fun List<Char>.allItemsUnique(): Boolean = size == toSet().size
+    private fun List<Char>.allItemsUnique(): Boolean {
+        val tArray = arrayListOf<Char>()
+        for (char in this) {
+            if (char in tArray) {
+                return false
+            } else {
+                tArray.add(char)
+            }
+        }
+        return true
+    }
 }
