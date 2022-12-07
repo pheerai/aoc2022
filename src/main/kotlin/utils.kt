@@ -8,6 +8,10 @@ fun <T,U,V> Pair<T,U>.mapSecond(action: (U) -> V): Pair<T,V> = this.first to act
 fun <T,U,V,Z: Collection<Pair<T,U>>> Z.mapFirsts(action: (T) -> V): List<Pair<V,U>> = this.map { it.mapFirst(action) }
 fun <T,U,V,Z: Collection<Pair<T,U>>> Z.mapSeconds(action: (U) -> V): List<Pair<T,V>> = this.map{ it.mapSecond(action) }
 
+data class HeadResult<T, out U: Collection<T>>(val head: T?, val rest: U)
+fun <T,U : Collection<T>> U.head() = HeadResult(firstOrNull(), drop(1))
+data class TailResult<T, out U: Collection<T>>(val tail: T?, val rest: U)
+fun <T,U : Collection<T>> U.tail() = HeadResult(lastOrNull(), take(this.size - 1))
 
 class Stack<T>(
     private val stack: ArrayDeque<T>
