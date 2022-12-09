@@ -54,3 +54,12 @@ class CapacityQueue<T>(
         }
     }
 }
+
+// math funs
+fun isign(i1: Int): Int {
+    return when {
+        i1 > 0 -> 1
+        i1 == 0 -> 0
+        else -> -1
+    }
+}
