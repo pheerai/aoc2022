@@ -142,15 +142,19 @@ class Calculation(private val monkeys: List<Monkey>) {
     private fun performRound(decreaseWorry: Boolean = true) {
         for (m in monkeys) {
             for (i in m.items) {
-                val afterInspectItem = m.inspect(i)
-                val afterNotBrokenItem = if (decreaseWorry) {
-                    afterInspectItem.notBroken()
-                } else {
-                    afterInspectItem
-                }
-                val reducedItem = afterNotBrokenItem.copy(worry = afterNotBrokenItem.worry % commonDenominator)
-                val itemTarget = m.getTarget.getTarget(reducedItem)
-                val targetMonkey = getMonkey(itemTarget)
+                val reducedItem = m.inspect(i)
+                    .let {
+                        if (decreaseWorry) {
+                            it.notBroken()
+                        } else {
+                            it
+                        }
+                    }
+                    .let { it.copy(worry = it.worry % commonDenominator) }
+
+                val targetMonkey = m.getTarget
+                    .getTarget(reducedItem)
+                    .let { getMonkey(it) }
                 targetMonkey.items.add(reducedItem)
             }
             m.items.clear()
